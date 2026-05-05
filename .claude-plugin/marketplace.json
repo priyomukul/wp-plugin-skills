@@ -1,0 +1,17 @@
+{
+  "name": "wp-plugin-skills",
+  "description": "WordPress development skills for Claude Code: vendors the official WordPress/agent-skills collection plus wp-php-coding-standards for WPCS PHP style.",
+  "owner": {
+    "name": "Mukul",
+    "email": "mukul@wpdeveloper.com"
+  },
+  "plugins": [
+    {
+      "name": "wp-plugin-skills",
+      "description": "WordPress development skills bundle: 16 skills covering plugins, blocks, themes, REST API, performance, WP-CLI, Playground, plugin directory guidelines, and WPCS PHP style. Auto-applies to any WordPress plugin or theme work.",
+      "source": "./plugins/wp-plugin-skills",
+      "category": "wordpress",
+      "homepage": "https://github.com/priyomukul/wp-plugin-skills"
+    }
+  ]
+}

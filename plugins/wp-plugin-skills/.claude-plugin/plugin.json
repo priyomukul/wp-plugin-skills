@@ -1,5 +1,6 @@
 {
   "name": "wp-plugin-skills",
+  "version": "0.1.0",
   "description": "WordPress development skills for Claude Code: vendors the official WordPress/agent-skills collection (15 skills covering plugins, blocks, themes, REST, performance, WP-CLI, Playground, and more) and adds wp-php-coding-standards for WPCS PHP style. Auto-applies to any WordPress plugin or theme work.",
   "author": {
     "name": "Mukul",

@@ -1,8 +1,33 @@
 # wp-plugin-skills
 
-Claude Code plugin that bundles the official **[WordPress/agent-skills](https://github.com/WordPress/agent-skills)** skill collection plus one local skill (`wp-php-coding-standards`) covering WPCS PHP style, which the upstream collection does not include.
+Claude Code marketplace + plugin that bundles the official **[WordPress/agent-skills](https://github.com/WordPress/agent-skills)** collection plus one local skill (`wp-php-coding-standards`) covering WPCS PHP style — the one gap in the upstream collection.
 
 Once installed, every skill below auto-triggers on the appropriate WordPress task — no slash command needed.
+
+## Install
+
+This repo is structured as a Claude Code marketplace containing one plugin. Install in two steps:
+
+### From a local clone
+
+```bash
+git clone https://github.com/priyomukul/wp-plugin-skills.git
+claude plugin marketplace add ./wp-plugin-skills
+claude plugin install wp-plugin-skills@wp-plugin-skills
+```
+
+### From GitHub (after the repo is published)
+
+```bash
+claude plugin marketplace add priyomukul/wp-plugin-skills
+claude plugin install wp-plugin-skills@wp-plugin-skills
+```
+
+Verify:
+
+```bash
+claude plugin list
+```
 
 ## Skills bundled
 
@@ -32,16 +57,6 @@ Local addition:
 |---|---|
 | `wp-php-coding-standards` | WPCS PHP style: formatting, naming, prefixing, file headers, Yoda, spacing, PHPDoc |
 
-## Install
-
-From this repo's parent directory:
-
-```bash
-claude plugin install ./wp-plugin-skills
-```
-
-Or symlink into `~/.claude/plugins/` and restart Claude Code.
-
 ## Sync with upstream
 
 The vendored skills are a copy, pinned to a specific upstream commit recorded in
@@ -53,33 +68,36 @@ The vendored skills are a copy, pinned to a specific upstream commit recorded in
 ./scripts/sync-upstream.sh <commit-sha>        # specific commit
 ```
 
-The script preserves `skills/wp-php-coding-standards/` (the local addition) and refreshes
-everything else, including `LICENSE`.
+The script preserves `wp-php-coding-standards/` (the local addition) and refreshes everything
+else, including `LICENSE`.
 
 ## Layout
 
 ```
-.claude-plugin/plugin.json       # Claude Code plugin manifest
-.upstream-version                # Pinned WordPress/agent-skills commit
-LICENSE                          # GPL-2.0 (from upstream)
-scripts/sync-upstream.sh         # Pull updates from WordPress/agent-skills
-skills/
-├── wp-php-coding-standards/     # Local: WPCS PHP style
-├── wordpress-router/            # Vendored from upstream
-├── wp-plugin-development/
-├── wp-plugin-directory-guidelines/
-├── wp-block-development/
-├── wp-block-themes/
-├── wp-rest-api/
-├── wp-interactivity-api/
-├── wp-abilities-api/
-├── wp-wpcli-and-ops/
-├── wp-performance/
-├── wp-phpstan/
-├── wp-playground/
-├── blueprint/
-├── wpds/
-└── wp-project-triage/
+.claude-plugin/marketplace.json              # Marketplace manifest (this repo)
+.upstream-version                            # Pinned WordPress/agent-skills commit
+LICENSE                                      # GPL-2.0 (from upstream)
+scripts/sync-upstream.sh                     # Pull updates from WordPress/agent-skills
+plugins/
+└── wp-plugin-skills/                        # The plugin
+    ├── .claude-plugin/plugin.json
+    └── skills/
+        ├── wp-php-coding-standards/         # Local: WPCS PHP style
+        ├── wordpress-router/                # Vendored from upstream
+        ├── wp-plugin-development/
+        ├── wp-plugin-directory-guidelines/
+        ├── wp-block-development/
+        ├── wp-block-themes/
+        ├── wp-rest-api/
+        ├── wp-interactivity-api/
+        ├── wp-abilities-api/
+        ├── wp-wpcli-and-ops/
+        ├── wp-performance/
+        ├── wp-phpstan/
+        ├── wp-playground/
+        ├── blueprint/
+        ├── wpds/
+        └── wp-project-triage/
 ```
 
 ## Credits
@@ -88,5 +106,5 @@ The 15 vendored skills are © 2026 WordPress Contributors, GPL-2.0-licensed, sou
 [github.com/WordPress/agent-skills](https://github.com/WordPress/agent-skills). All upstream
 skills are unmodified copies. See `LICENSE` for the full GPL-2.0 text.
 
-The `wp-php-coding-standards` skill is original, also GPL-2.0-or-later, sourced from
-the public WordPress Coding Standards documentation.
+The `wp-php-coding-standards` skill is original, also GPL-2.0-or-later, sourced from the public
+WordPress Coding Standards documentation.
