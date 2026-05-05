@@ -2,8 +2,8 @@
   "name": "wp-plugin-skills",
   "description": "WordPress development skills for Claude Code: vendors the official WordPress/agent-skills collection plus wp-php-coding-standards for WPCS PHP style.",
   "owner": {
-    "name": "Mukul",
-    "email": "mukul@wpdeveloper.com"
+    "name": "Priyo Mukul",
+    "email": "priyomukul@gmail.com"
   },
   "plugins": [
     {
